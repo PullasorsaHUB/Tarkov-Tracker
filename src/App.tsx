@@ -51,6 +51,7 @@ function App() {
     const matchescaliber = selectedCaliber === "" || ammo.caliber === selectedCaliber;
     return matchesName && matchescaliber;
   })
+  const sortedAmmo = sortAmmo(filteredAmmo, sortKey, sortDirection);
   const calibers = Array.from(new Set(ammoList.map(ammo => ammo.caliber)));
   
   return (
@@ -76,7 +77,7 @@ function App() {
           ))}
         </select>
 
-        <AmmoTable ammoList={filteredAmmo} />
+        <AmmoTable ammoList={sortedAmmo} />
       </div>
     </>
   );
